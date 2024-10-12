@@ -744,7 +744,7 @@ function Material.Load(Config)
 	ProtectFunctions.Undefined = function(GuiObject) GuiObject.Parent = CoreGuiService; end;
 
 	if getgenv().OldInstance then return end
-	
+
 	local NewInstance = Objects.new("ScreenGui")
 	Material["GUI"] = NewInstance
 	NewInstance.Name = "MiojoHub"
@@ -815,7 +815,7 @@ function Material.Load(Config)
 
 	local MinimiseButton = Objects.new("CircleButton")
 	MinimiseButton.Size = UDim2.fromOffset(10,10)
-	MinimiseButton.Position = UDim2.new(1,-75,0,2.5)
+	MinimiseButton.Position = UDim2.new(1,-75,0,10)
 	MinimiseButton.ImageColor3 = Theme.Minimise
 	MinimiseButton.BackgroundTransparency = 1
 	MinimiseButton.Image = "rbxassetid://105760115040700"
