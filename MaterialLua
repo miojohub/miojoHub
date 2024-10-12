@@ -702,6 +702,8 @@ end
 
 Material.Options = {}
 function Material.Load(Config)
+	if getgenv().OldInstance then return end
+
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
 	local Title = Config.Title or "MaterialLua"
 	local SizeX = Config.SizeX or 300
@@ -746,6 +748,7 @@ function Material.Load(Config)
 	NewInstance.Name = "MiojoHub"
 	ProtectFunctions[GetExploit()](NewInstance);
 
+	getgenv().OldInstance = NewInstance;
 	MainGUI = NewInstance
 
 	local MainFrame = Objects.new("Round")
@@ -791,9 +794,26 @@ function Material.Load(Config)
 	TitleText.Font = Enum.Font.GothamBold
 	TitleText.Parent = TitleBar
 
+	TitleText.MouseButton1Down:Connect(function()
+		local Mx, My = Mouse.X, Mouse.Y
+		local MouseMove, MouseKill
+		MouseMove = Mouse.Move:Connect(function()
+			local nMx, nMy = Mouse.X, Mouse.Y
+			local Dx, Dy = nMx - Mx, nMy - My
+			MainFrame.Position = MainFrame.Position + UDim2.fromOffset(Dx, Dy)
+			Mx, My = nMx, nMy
+		end)
+		MouseKill = InputService.InputEnded:Connect(function(UserInput)
+			if UserInput.UserInputType == Enum.UserInputType.MouseButton1 then
+				MouseMove:Disconnect()
+				MouseKill:Disconnect()
+			end
+		end)
+	end)
+
 	local MinimiseButton = Objects.new("CircleButton")
-	MinimiseButton.Size = UDim2.fromOffset(20,20)
-	MinimiseButton.Position = UDim2.new(1,-50,0,5)
+	MinimiseButton.Size = UDim2.fromOffset(10,10)
+	MinimiseButton.Position = UDim2.new(1,-75,0,2.5)
 	MinimiseButton.ImageColor3 = Theme.Minimise
 	MinimiseButton.BackgroundTransparency = 1
 	MinimiseButton.Image = "rbxassetid://105760115040700"
@@ -810,6 +830,7 @@ function Material.Load(Config)
     HideButton.Selectable = false
     HideButton.Size = UDim2.new(0.0534201749, 0, 0.0980202928, 0)
     HideButton.AutoButtonColor = false
+	HideButton.Visible = false
 
 	MinimiseButton.MouseButton1Down:Connect(function()
 		MainFrame.Visible = false
@@ -831,6 +852,7 @@ function Material.Load(Config)
 	MinimiseButton2.Parent = TitleBar
 
 	MinimiseButton2.MouseButton1Down:Connect(function()
+		getgenv().OldInstance = nil
 		MainGUI:Destroy()
 		Material["Loaded"] = nil
 	end)
