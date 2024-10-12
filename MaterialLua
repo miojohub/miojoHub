@@ -1110,7 +1110,9 @@ function Material.Load(Config)
 
 		function OptionLibrary.Dropdown(DropdownConfig)
 			local DropdownText = DropdownConfig.Text or "nil dropdown"
+            local DropdownId = DropdownConfig.Id or DropdownText
             local DropdownValue = DropdownConfig.Default
+            local DropdownMulti = DropdownConfig.Multi or false
 			local DropdownCallback = DropdownConfig.Callback or function() print("nil dropdown") end
 			local DropdownOptions = DropdownConfig.Options or {}
 			local Menu = DropdownConfig.Menu or {}
@@ -1193,6 +1195,8 @@ function Material.Load(Config)
 					DropdownCallback(Value)
 					DropdownTitle.Text = DropdownText..": "..Value
                     DropdownValue = Value
+                    if not Material.Options[DropdownId] then Material.Options[DropdownId] = {} end
+                    Material.Options[DropdownId]["Value"] = Value
 				end)
 			end)
 
@@ -1258,6 +1262,8 @@ function Material.Load(Config)
 						DropdownCallback(Value)
 						DropdownTitle.Text = DropdownText..": "..Value
                         DropdownValue = Value
+                        if not Material.Options[DropdownId] then Material.Options[DropdownId] = {} end
+                        Material.Options[DropdownId]["Value"] = Value
 					end)
 				end)
 			end
