@@ -791,6 +791,36 @@ function Material.Load(Config)
 	TitleText.Font = Enum.Font.GothamBold
 	TitleText.Parent = TitleBar
 
+	local MinimiseButton = Objects.new("CircleButton")
+	MinimiseButton.Size = UDim2.fromOffset(20,20)
+	MinimiseButton.Position = UDim2.new(1,-50,0,5)
+	MinimiseButton.ImageColor3 = Theme.Minimise
+	MinimiseButton.BackgroundTransparency = 1
+	MinimiseButton.Image = "rbxassetid://105760115040700"
+	MinimiseButton.Parent = TitleBar
+
+	local HideButton = Instance.new("ImageButton", MainGUI)
+    local AspectRatio = Instance.new("UIAspectRatioConstraint", HideButton)
+    local UICorner = Instance.new("UICorner", HideButton)
+    HideButton.Name = "HideButton"
+    HideButton.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
+    HideButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    HideButton.BorderSizePixel = 0
+    HideButton.Position = UDim2.new(0.00833767373, 0, 0.107970171, 0)
+    HideButton.Selectable = false
+    HideButton.Size = UDim2.new(0.0534201749, 0, 0.0980202928, 0)
+    HideButton.AutoButtonColor = false
+
+	MinimiseButton.MouseButton1Down:Connect(function()
+		MainFrame.Visible = false
+		HideButton.Visible = true
+	end)
+
+	HideButton.MouseButton1Down:Connect(function()
+		MainFrame.Visible = true
+		HideButton.Visible = false
+	end)
+
 	local MinimiseButton2 = Objects.new("CircleButton")
 	MinimiseButton2.Size = UDim2.fromOffset(20,20)
 	MinimiseButton2.Position = UDim2.new(1,-25,0,5)
