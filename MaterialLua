@@ -7,9 +7,104 @@ local RunService = game:GetService("RunService")
 local InputService = game:GetService("UserInputService")
 local CoreGuiService = game:GetService("CoreGui")
 local ContentService = game:GetService("ContentProvider")
-local UserInputService = game:GetService("UserInputService")
 
 local Themes = {
+	Light = {
+		MainFrame = Color3.fromRGB(255,255,255),
+		Minimise = Color3.fromRGB(255,106,0),
+		MinimiseAccent = Color3.fromRGB(147,59,0),
+		Maximise = Color3.fromRGB(25,255,0),
+		MaximiseAccent = Color3.fromRGB(0,255,110),
+		NavBar = Color3.fromRGB(124,37,255),
+		NavBarAccent = Color3.fromRGB(255,255,255),
+		NavBarInvert = Color3.fromRGB(30,30,30),
+		TitleBar = Color3.fromRGB(124,37,255),
+		TitleBarAccent = Color3.fromRGB(255,255,255),
+		Overlay = Color3.fromRGB(124,37,255),
+		Banner = Color3.fromRGB(255,255,255),
+		BannerAccent = Color3.fromRGB(124,37,255),
+		Content = Color3.fromRGB(124,37,255),
+		Button = Color3.fromRGB(124,37,255),
+		ButtonAccent = Color3.fromRGB(255,255,255),
+		ChipSet = Color3.fromRGB(124,37,255),
+		ChipSetAccent = Color3.fromRGB(255,255,255),
+		DataTable = Color3.fromRGB(124,37,255),
+		DataTableAccent = Color3.fromRGB(255,255,255),
+		Slider = Color3.fromRGB(255,255,255),
+		SliderAccent = Color3.fromRGB(124,37,255),
+		Toggle = Color3.fromRGB(124,37,255),
+		ToggleAccent = Color3.fromRGB(255,255,255),
+		Dropdown = Color3.fromRGB(255,255,255),
+		DropdownAccent = Color3.fromRGB(124,37,255),
+		ColorPicker = Color3.fromRGB(255,255,255),
+		ColorPickerAccent = Color3.fromRGB(124,37,255),
+		TextField = Color3.fromRGB(124,37,255),
+		TextFieldAccent = Color3.fromRGB(124,37,255),
+	},
+	Dark = {
+		MainFrame = Color3.fromRGB(30,30,30),
+		Minimise = Color3.fromRGB(255,106,0),
+		MinimiseAccent = Color3.fromRGB(147,59,0),
+		Maximise = Color3.fromRGB(25,255,0),
+		MaximiseAccent = Color3.fromRGB(0,255,110),
+		NavBar = Color3.fromRGB(55,55,55),
+		NavBarAccent = Color3.fromRGB(255,255,255),
+		NavBarInvert = Color3.fromRGB(235,235,235),
+		TitleBar = Color3.fromRGB(55,55,55),
+		TitleBarAccent = Color3.fromRGB(255,255,255),
+		Overlay = Color3.fromRGB(175,175,175),
+		Banner = Color3.fromRGB(55,55,55),
+		BannerAccent = Color3.fromRGB(255,255,255),
+		Content = Color3.fromRGB(85,85,85),
+		Button = Color3.fromRGB(85,85,85),
+		ButtonAccent = Color3.fromRGB(255,255,255),
+		ChipSet = Color3.fromRGB(235,235,235),
+		ChipSetAccent = Color3.fromRGB(85,85,85),
+		DataTable = Color3.fromRGB(235,235,235),
+		DataTableAccent = Color3.fromRGB(85,85,85),
+		Slider = Color3.fromRGB(85,85,85),
+		SliderAccent = Color3.fromRGB(235,235,235),
+		Toggle = Color3.fromRGB(205,205,205),
+		ToggleAccent = Color3.fromRGB(125,125,125),
+		Dropdown = Color3.fromRGB(85,85,85),
+		DropdownAccent = Color3.fromRGB(235,235,235),
+		ColorPicker = Color3.fromRGB(85,85,85),
+		ColorPickerAccent = Color3.fromRGB(235,235,235),
+		TextField = Color3.fromRGB(175,175,175),
+		TextFieldAccent = Color3.fromRGB(255,255,255),
+	},
+	Mocha = {
+		MainFrame = Color3.fromRGB(255,255,255),
+		Minimise = Color3.fromRGB(219, 210, 202),
+		MinimiseAccent = Color3.fromRGB(219, 210, 202),
+		Maximise = Color3.fromRGB(189, 183, 177),
+		MaximiseAccent = Color3.fromRGB(189, 183, 177),
+		NavBar = Color3.fromRGB(176, 148, 125),
+		NavBarAccent = Color3.fromRGB(255,255,255),
+		NavBarInvert = Color3.fromRGB(30,30,30),
+		TitleBar = Color3.fromRGB(176, 148, 125),
+		TitleBarAccent = Color3.fromRGB(255,255,255),
+		Overlay = Color3.fromRGB(176, 148, 125),
+		Banner = Color3.fromRGB(255,255,255),
+		BannerAccent = Color3.fromRGB(176, 148, 125),
+		Content = Color3.fromRGB(176, 148, 125),
+		Button = Color3.fromRGB(176, 148, 125),
+		ButtonAccent = Color3.fromRGB(255,255,255),
+		ChipSet = Color3.fromRGB(176, 148, 125),
+		ChipSetAccent = Color3.fromRGB(255,255,255),
+		DataTable = Color3.fromRGB(176, 148, 125),
+		DataTableAccent = Color3.fromRGB(255,255,255),
+		Slider = Color3.fromRGB(255,255,255),
+		SliderAccent = Color3.fromRGB(176, 148, 125),
+		Toggle = Color3.fromRGB(176, 148, 125),
+		ToggleAccent = Color3.fromRGB(255,255,255),
+		Dropdown = Color3.fromRGB(255,255,255),
+		DropdownAccent = Color3.fromRGB(176, 148, 125),
+		ColorPicker = Color3.fromRGB(255,255,255),
+		ColorPickerAccent = Color3.fromRGB(176, 148, 125),
+		TextField = Color3.fromRGB(175,175,175),
+		TextFieldAccent = Color3.fromRGB(255,255,255)
+	},
 	Aqua = {
 		MainFrame = Color3.fromRGB(255,255,255),
 		Minimise = Color3.fromRGB(219, 210, 202),
@@ -41,6 +136,38 @@ local Themes = {
 		ColorPickerAccent = Color3.fromRGB(116, 112, 140),
 		TextField = Color3.fromRGB(175,175,175),
 		TextFieldAccent = Color3.fromRGB(255,255,255)
+	},
+	Jester = {
+		MainFrame = Color3.fromRGB(255,255,255),
+		Minimise = Color3.fromRGB(219, 210, 202),
+		MinimiseAccent = Color3.fromRGB(219, 210, 202),
+		Maximise = Color3.fromRGB(189, 183, 177),
+		MaximiseAccent = Color3.fromRGB(189, 183, 177),
+		NavBar = Color3.fromRGB(219, 68, 103),
+		NavBarAccent = Color3.fromRGB(255,255,255),
+		NavBarInvert = Color3.fromRGB(30,30,30),
+		TitleBar = Color3.fromRGB(219, 68, 103),
+		TitleBarAccent = Color3.fromRGB(255,255,255),
+		Overlay = Color3.fromRGB(219, 68, 103),
+		Banner = Color3.fromRGB(255,255,255),
+		BannerAccent = Color3.fromRGB(219, 68, 103),
+		Content = Color3.fromRGB(219, 68, 103),
+		Button = Color3.fromRGB(219, 68, 103),
+		ButtonAccent = Color3.fromRGB(255,255,255),
+		ChipSet = Color3.fromRGB(219, 68, 103),
+		ChipSetAccent = Color3.fromRGB(255,255,255),
+		DataTable = Color3.fromRGB(219, 68, 103),
+		DataTableAccent = Color3.fromRGB(255,255,255),
+		Slider = Color3.fromRGB(255,255,255),
+		SliderAccent = Color3.fromRGB(219, 68, 103),
+		Toggle = Color3.fromRGB(219, 68, 103),
+		ToggleAccent = Color3.fromRGB(255,255,255),
+		Dropdown = Color3.fromRGB(255,255,255),
+		DropdownAccent = Color3.fromRGB(219, 68, 103),
+		ColorPicker = Color3.fromRGB(255,255,255),
+		ColorPickerAccent = Color3.fromRGB(219, 68, 103),
+		TextField = Color3.fromRGB(175,175,175),
+		TextFieldAccent = Color3.fromRGB(255,255,255),
 	}
 }
 
@@ -202,26 +329,6 @@ local function CircleAnim(GuiObject, EndColour, StartColour)
 		wait(2)
 		Circle:Destroy()
 	end)
-end
-
-local function getAllValuesFromTable(arrayObject)
-	local text = ""
-	for i, v in pairs(arrayObject) do
-		if i == #arrayObject then
-			text=text..tostring(v)..""
-		else
-			text=text..tostring(v)..", "
-		end
-	end
-	return text
-end
-
-local function getIndexfromValue(array, value)
-	for i, v in pairs(array) do
-		if v == value then
-			return i
-		end
-	end
 end
 
 local Material = {}
@@ -593,9 +700,7 @@ function CreateNewButton(ButtonConfig, Parent)
 	return Button, ButtonLabel
 end
 
-Material["isClosed"] = false
-Material["Options"] = {}
-
+Material.Options = {}
 function Material.Load(Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
 	local Title = Config.Title or "MaterialLua"
@@ -697,7 +802,7 @@ function Material.Load(Config)
 
 	MinimiseButton2.MouseButton1Down:Connect(function()
 		MainGUI:Destroy()
-		Material["isClosed"] = true
+		Material["Loaded"] = nil
 	end)
 
 	local Content = Objects.new("Round")
@@ -719,6 +824,7 @@ function Material.Load(Config)
 	TweenService:Create(Content, TweenInfo.new(1), {ImageTransparency = 0.8}):Play()
 
 	wait(1)
+    Material["Loaded"] = true
 
 	if NavBarMenu then
 		TweenService:Create(TitleText, TweenInfo.new(0.5), {
@@ -1004,13 +1110,10 @@ function Material.Load(Config)
 
 		function OptionLibrary.Dropdown(DropdownConfig)
 			local DropdownText = DropdownConfig.Text or "nil dropdown"
-			local DropdownId = DropdownConfig.Id or DropdownText
-			local DropdownValue = DropdownConfig.Default
-			local MultiDropdown = DropdownConfig.Multi or false
+            local DropdownValue = DropdownConfig.Default
 			local DropdownCallback = DropdownConfig.Callback or function() print("nil dropdown") end
 			local DropdownOptions = DropdownConfig.Options or {}
 			local Menu = DropdownConfig.Menu or {}
-			Material.Options[tostring(DropdownId)] = {}
 
 			local Dropdown = Objects.new("Frame")
 			Dropdown.Name = "Dropdown"
@@ -1031,11 +1134,7 @@ function Material.Load(Config)
 			DropdownTitle.TextColor3 = Theme.DropdownAccent
 			DropdownTitle.TextTransparency = 1
 			DropdownTitle.TextSize = 14
-			DropdownTitle.TextScaled = true
 			DropdownTitle.Parent = DropdownBar
-			
-			local UITextSizeConstraintDropdownTitle = Instance.new("UITextSizeConstraint", DropdownTitle)
-			UITextSizeConstraintDropdownTitle.MaxTextSize = 14
 
 			local DropdownToggle = Objects.new("Round")
 			DropdownToggle.Name = "Container"
@@ -1082,36 +1181,20 @@ function Material.Load(Config)
 					DropdownSize = UDim2.fromScale(1,0) + UDim2.fromOffset(DropdownList.AbsoluteContentSize.Y)
 				end
 			end)
-			local array = {}
-			local lastButton = nil
+
 			table.foreach(DropdownOptions, function(_, Value)
 				local NewButton = CreateNewButton({
 					Text = Value,
 					Callback = function() end
 				}, DropdownContent)
-				
+
 				NewButton.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,20)
 				NewButton.MouseButton1Down:Connect(function()
-					if MultiDropdown then
-						if not table.find(array, Value) then table.insert(array, Value); NewButton.ImageColor3 = Color3.fromRGB(72, 69, 87)
-						elseif table.find(array, Value) then table.remove(array, getIndexfromValue(array, Value)); NewButton.ImageColor3 = Theme.DropdownAccent end
-						DropdownCallback(array)
-						DropdownTitle.Text = DropdownText..": "..tostring(getAllValuesFromTable(array))
-						DropdownValue = array
-						Material.Options[tostring(DropdownId)]["Value"] = array
-					else
-						if lastButton ~= nil and lastButton ~= NewButton then lastButton.ImageColor3 = Theme.DropdownAccent end
-						lastButton = NewButton
-						DropdownCallback(Value)
-						DropdownTitle.Text = DropdownText..": "..Value
-						DropdownValue = Value
-						NewButton.ImageColor3 = Color3.fromRGB(72, 69, 87)
-						Material.Options[tostring(DropdownId)]["Value"] = Value
-					end
+					DropdownCallback(Value)
+					DropdownTitle.Text = DropdownText..": "..Value
+                    DropdownValue = Value
 				end)
 			end)
-			if MultiDropdown then Material.Options[tostring(DropdownId)]["Value"] = {}
-			else Material.Options[tostring(DropdownId)]["Value"] = "" end
 
 			DropdownTitle.MouseButton1Down:Connect(function()
 				DropToggle = not DropToggle
@@ -1137,9 +1220,9 @@ function Material.Load(Config)
 				return DropdownTitle.Text
 			end
 
-			function DropdownLibrary:GetValue()
-				return DropdownValue
-			end
+            function DropdownLibrary:GetValue()
+                return DropdownValue
+            end
 
 			function DropdownLibrary:SetOptions(NewMenu)
 				DropdownOptions = NewMenu or {}
@@ -1172,22 +1255,9 @@ function Material.Load(Config)
 
 					NewButton.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,20)
 					NewButton.MouseButton1Down:Connect(function()
-						if MultiDropdown then
-							if not table.find(array, Value) then table.insert(array, Value); NewButton.ImageColor3 = Color3.fromRGB(72, 69, 87)
-							elseif table.find(array, Value) then table.remove(array, getIndexfromValue(array, Value)); NewButton.ImageColor3 = Theme.DropdownAccent end
-							DropdownCallback(array)
-							DropdownTitle.Text = DropdownText..": "..tostring(getAllValuesFromTable(array))
-							DropdownValue = array
-							Material.Options[tostring(DropdownId)]["Value"] = array
-						else
-							if lastButton ~= nil and lastButton ~= NewButton then lastButton.ImageColor3 = Theme.DropdownAccent end
-							lastButton = NewButton
-							DropdownCallback(Value)
-							DropdownTitle.Text = DropdownText..": "..Value
-							DropdownValue = Value
-							NewButton.ImageColor3 = Color3.fromRGB(72, 69, 87)
-							Material.Options[tostring(DropdownId)]["Value"] = Value
-						end
+						DropdownCallback(Value)
+						DropdownTitle.Text = DropdownText..": "..Value
+                        DropdownValue = Value
 					end)
 				end)
 			end
@@ -1478,12 +1548,11 @@ function Material.Load(Config)
 				local BuildTable = {}
 
 				table.foreach(DataTableOptions, function(Key, Value)
-					Material.Options[tostring(DataTableId)] = {}
 					if typeof(Value) == "table" then
-						Material.Options[tostring(DataTableId)][tostring(Value.Id)] = {}
 						BuildTable[Key] = Value.Enabled
-						Material.Options[tostring(DataTableId)][tostring(Value.Id)]["Value"] = Value.Enabled
-						print(Material.Options[tostring(DataTableId)][tostring(Value.Id)].Value)
+						if not Material.Options[tostring(Value.Id)] then Material.Options[tostring(Value.Id)] = {} end
+						Material.Options[tostring(Value.Id)]["Value"] = Value.Enabled
+						print(Key, Value.Enabled)
 					else
 						print("Error missing Option")
 					end
@@ -1537,11 +1606,21 @@ function Material.Load(Config)
 					TweenService:Create(Tick, TweenInfo.new(0.5), {ImageTransparency = BuildTable[Key] and 0 or 0.7}):Play()
 					TweenService:Create(DataLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 
+                    function Material.Options[tostring(Value.Id)]:SetValue(NewValue)
+						BuildTable[Key] = NewValue
+						print("Set:", Key, Value.Id, NewValue)
+                        Material.Options[tostring(Value.Id)]["Value"] = NewValue
+                        TweenService:Create(DataItem, TweenInfo.new(0.15), {ImageTransparency = NewValue and 0.8 or 0, ImageColor3 = NewValue and Theme.DataTable or Theme.DataTableAccent}):Play()
+						TweenService:Create(Tick, TweenInfo.new(0.15), {ImageTransparency = NewValue and 0 or 0.7}):Play()
+						TweenService:Create(DataTracker, TweenInfo.new(0.15), {ImageTransparency = NewValue and 0 or 0.8}):Play()
+						DataTableCallback(BuildTable)
+                    end
+
 					DataItem.MouseButton1Down:Connect(function()
 						BuildTable[Key] = not BuildTable[Key]
 						local Enabled = BuildTable[Key]
-						Material.Options[tostring(DataTableId)][tostring(Value.Id)]["Value"] = Enabled
-						print(Material.Options[tostring(DataTableId)][tostring(Value.Id)].Value)
+						Material.Options[tostring(Value.Id)]["Value"] = Enabled
+						print(Value.Id, Enabled)
 						TweenService:Create(DataItem, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0.8 or 0, ImageColor3 = Enabled and Theme.DataTable or Theme.DataTableAccent}):Play()
 						TweenService:Create(Tick, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.7}):Play()
 						TweenService:Create(DataTracker, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.8}):Play()
@@ -1550,110 +1629,6 @@ function Material.Load(Config)
 				end)
 
 				local DataTableLibrary = {}
-
-				function DataTableLibrary:SetOptions(NewMenu)
-					if DataContainer then
-						DataContainer:Destroy()
-					end
-
-					DataTableOptions = NewMenu or {}
-
-					TotalOptions = 0
-
-					table.foreach(DataTableOptions, function()
-						TotalOptions = TotalOptions + 1
-					end)
-
-					Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,(TotalOptions*30)+((TotalOptions+1)*5))
-
-					DataTable.Size = Size
-
-					DataContainer = Objects.new("Frame")
-					DataContainer.Name = "Container"
-					DataContainer.Parent = DataTable
-
-					local DataList = Objects.new("UIListLayout")
-					DataList.SortOrder = Enum.SortOrder.LayoutOrder
-					DataList.Padding = UDim.new(0,5)
-					DataList.Parent = DataContainer
-
-					local DataPadding = Objects.new("UIPadding")
-					DataPadding.PaddingBottom = UDim.new(0,5)
-					DataPadding.PaddingTop = UDim.new(0,5)
-					DataPadding.PaddingRight= UDim.new(0,5)
-					DataPadding.PaddingLeft = UDim.new(0,5)
-					DataPadding.Parent = DataContainer
-
-					local BuildTable = {}
-
-					table.foreach(DataTableOptions, function(Key, Value)
-						Material.Options[tostring(Key)] = {}
-						if typeof(Value) == "table" then
-							BuildTable[Key] = Value.Enabled
-							Material.Options[tostring(Key)]["Value"] = Value.Enabled
-						else
-							print("Error missing Option")
-						end
-					end)
-
-					DataTableCallback(BuildTable)
-
-					TweenService:Create(DataTable, TweenInfo.new(0.5), {ImageTransparency = 0.9}):Play()
-					TweenService:Create(DataShadow, TweenInfo.new(0.5), {ImageTransparency = 0.8}):Play()
-
-					table.foreach(DataTableOptions, function(Key, Value)
-						local DataItem = Objects.new("SmoothButton")
-						DataItem.Name = "DataItem"
-						DataItem.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
-						DataItem.ImageColor3 = BuildTable[Key] and Theme.DataTable or Theme.DataTableAccent
-						DataItem.ImageTransparency = 1
-						DataItem.Parent = DataContainer
-
-						local DataTracker = Objects.new("Round")
-						DataTracker.Name = "Tracker"
-						DataTracker.Size = UDim2.fromOffset(24,24)
-						DataTracker.Position = UDim2.fromScale(0,0.5) + UDim2.fromOffset(3,-12)
-						DataTracker.ImageColor3 = Theme.DataTable
-						DataTracker.ImageTransparency = 1
-						DataTracker.Parent = DataItem
-
-						local Tick = Objects.new("Round")
-						Tick.Name = "Tick"
-						Tick.ScaleType = Enum.ScaleType.Stretch
-						Tick.Image = "http://www.roblox.com/asset/?id=5554953789"
-						Tick.ImageColor3 = Theme.DataTableAccent
-						Tick.ImageTransparency = 1
-						Tick.Size = UDim2.fromScale(1,1) - UDim2.fromOffset(4,4)
-						Tick.SizeConstraint = Enum.SizeConstraint.RelativeYY
-						Tick.Position = UDim2.fromOffset(2,2)
-						Tick.Parent = DataTracker
-
-						local DataLabel = Objects.new("Label")
-						DataLabel.Name = "Value"
-						DataLabel.Size = (UDim2.fromScale(1,1) - UDim2.fromOffset(30))
-						DataLabel.Position = UDim2.fromOffset(30) or UDim2.fromOffset(5)
-						DataLabel.Text = Key
-						DataLabel.Font = Enum.Font.Gotham
-						DataLabel.TextSize = 14
-						DataLabel.TextColor3 = Theme.DataTable
-						DataLabel.TextTransparency = 1
-						DataLabel.Parent = DataItem
-
-						TweenService:Create(DataItem, TweenInfo.new(0.5), {ImageTransparency = BuildTable[Key] and 0.8 or 0}):Play()
-						TweenService:Create(DataTracker, TweenInfo.new(0.5), {ImageTransparency = BuildTable[Key] and 0 or 0.8}):Play()
-						TweenService:Create(Tick, TweenInfo.new(0.5), {ImageTransparency = BuildTable[Key] and 0 or 0.7}):Play()
-						TweenService:Create(DataLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
-
-						DataItem.MouseButton1Down:Connect(function()
-							BuildTable[Key] = not BuildTable[Key]
-							local Enabled = BuildTable[Key]
-							TweenService:Create(DataItem, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0.8 or 0, ImageColor3 = Enabled and Theme.DataTable or Theme.DataTableAccent}):Play()
-							TweenService:Create(Tick, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.7}):Play()
-							TweenService:Create(DataTracker, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.8}):Play()
-							DataTableCallback(BuildTable)
-						end)
-					end)
-				end
 
 				function DataTableLibrary:GetOptions()
 					return DataTableOptions
