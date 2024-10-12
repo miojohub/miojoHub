@@ -743,6 +743,8 @@ function Material.Load(Config)
 	ProtectFunctions.ScriptWare = function(GuiObject) GuiObject.Parent = gethui(); end;
 	ProtectFunctions.Undefined = function(GuiObject) GuiObject.Parent = CoreGuiService; end;
 
+	if getgenv().OldInstance then return end
+	
 	local NewInstance = Objects.new("ScreenGui")
 	Material["GUI"] = NewInstance
 	NewInstance.Name = "MiojoHub"
