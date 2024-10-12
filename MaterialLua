@@ -1552,7 +1552,6 @@ function Material.Load(Config)
 						BuildTable[Key] = Value.Enabled
 						if not Material.Options[tostring(Value.Id)] then Material.Options[tostring(Value.Id)] = {} end
 						Material.Options[tostring(Value.Id)]["Value"] = Value.Enabled
-						print("Line: 1555", Key, Value.Enabled)
 					else
 						print("Error missing Option")
 					end
@@ -1613,7 +1612,6 @@ function Material.Load(Config)
                     end
                     function ThisDataKeyTable:SetValue(NewValue)
 						BuildTable[Key] = NewValue
-						print("Line 1616   Set:", Key, Value.Id, NewValue)
                         Material.Options[tostring(Value.Id)]["Value"] = NewValue
                         TweenService:Create(DataItem, TweenInfo.new(0.15), {ImageTransparency = NewValue and 0.8 or 0, ImageColor3 = NewValue and Theme.DataTable or Theme.DataTableAccent}):Play()
 						TweenService:Create(Tick, TweenInfo.new(0.15), {ImageTransparency = NewValue and 0 or 0.7}):Play()
@@ -1625,7 +1623,6 @@ function Material.Load(Config)
 						BuildTable[Key] = not BuildTable[Key]
 						local Enabled = BuildTable[Key]
 						Material.Options[tostring(Value.Id)]["Value"] = Enabled
-						print("Line 1628    Clicked:", Value.Id, Enabled)
 						TweenService:Create(DataItem, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0.8 or 0, ImageColor3 = Enabled and Theme.DataTable or Theme.DataTableAccent}):Play()
 						TweenService:Create(Tick, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.7}):Play()
 						TweenService:Create(DataTracker, TweenInfo.new(0.15), {ImageTransparency = Enabled and 0 or 0.8}):Play()
