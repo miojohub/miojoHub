@@ -1606,7 +1606,12 @@ function Material.Load(Config)
 					TweenService:Create(Tick, TweenInfo.new(0.5), {ImageTransparency = BuildTable[Key] and 0 or 0.7}):Play()
 					TweenService:Create(DataLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 
-                    function Material.Options[tostring(Value.Id)]:SetValue(NewValue)
+                    local ThisDataKeyTable = Material.Options[tostring(Value.Id)]
+                    if not ThisDataKeyTable then
+                        Material.Options[tostring(Value.Id)] = {}
+                        ThisDataKeyTable = Material.Options[tostring(Value.Id)]
+                    end
+                    function ThisDataKeyTable:SetValue(NewValue)
 						BuildTable[Key] = NewValue
 						print("Set:", Key, Value.Id, NewValue)
                         Material.Options[tostring(Value.Id)]["Value"] = NewValue
@@ -2305,5 +2310,5 @@ function Material.Load(Config)
 
 	return TabLibrary
 end
-print("Return?")
+
 return Material
