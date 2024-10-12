@@ -1167,7 +1167,7 @@ function Material.Load(Config)
             local DropdownId = DropdownConfig.Id or DropdownText
             local DropdownValue = DropdownConfig.Default
             local DropdownMulti = DropdownConfig.Multi or false
-			local DropdownCallback = DropdownConfig.Callback or function() end
+			local DropdownCallback = DropdownConfig.Callback or function(Value) end
 			local DropdownOptions = DropdownConfig.Options or {}
 			local Menu = DropdownConfig.Menu or {}
 
@@ -1565,7 +1565,7 @@ function Material.Load(Config)
 		function OptionLibrary.DataTable(DataTableConfig)
 			local DataTableText = DataTableConfig.Text or "nil datatable"
 			local DataTableId = DataTableConfig.Id or DataTableText
-			local DataTableCallback = DataTableConfig.Callback or function() end
+			local DataTableCallback = DataTableConfig.Callback or function(v) end
 			local DataTableOptions = DataTableConfig.Options or {}
 			local TotalOptions = 0
 
